@@ -7,7 +7,7 @@ import (
     "flag"
 
      "github.com/neteng-tools/cliPrompt"
-     n "automatenable/nableScraper"
+     n "github.com/neteng-tools/n-ableScraper"
 
 )
 
