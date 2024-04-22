@@ -67,15 +67,14 @@ func main() {
     nable.Login(*username, *password)
     fmt.Println("Running")
 
-    nable.AllDevicesPage()
     for _, device := range deviceList {
+        nable.AllDevicesPage()
         fmt.Print("Searching tenant for " + device.Address)
         nable.Search(device.Address)
         nable.SelectAll().Edit()
         name, ok := nable.GetDeviceName()
         if !ok {
                 fmt.Println("\nWARNING: Skipping " + device.Address + " due to navigation error.")
-                nable.AllDevicesPage()
                 continue
         }
         fmt.Print("...Current device name is '" + name + "'")
@@ -89,7 +88,6 @@ func main() {
         } else {
             fmt.Println("...Getting updated device name failed")
         }
-        nable.AllDevicesPage()
     }
     os.Exit(0)
 }
